@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "name": "Covid-19 Caribbean App",
+  "short_name": "Covid19CaribApp",
+  "description": "Tracking and reporting on the COVID-19 Corona virus outbreak relevant to the Caribbean region.",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +21,7 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "orientation": "any",
+  "theme_color": "#ffffff",
+  "background_color": "#211437"
 }
