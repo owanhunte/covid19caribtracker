@@ -1,44 +1,58 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Covid-19 Caribbean Tracker App
 
-## Available Scripts
+> React app for tracking and reporting on the COVID-19 Corona virus outbreak relevant to the Caribbean region.
 
-In the project directory, you can run:
+## Developer Note
 
-### `yarn start`
+This app is a Single-Page Application (SPA) bootstrapped with [Create React App](https://github.com/facebook/create-react-app), an officially supported way to create single-page React applications that offers a modern build setup with no configuration.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Local Development
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+1. Make sure you have [NodeJS](https://nodejs.org) (>= 8.10) and [Yarn](https://yarnpkg.com/en) (>= 1.6.0) installed on your local development machine.
+2. Fork and clone this repository to your local environment.
+3. Install the dependencies:
 
-### `yarn test`
+   ```
+   cd path/to/app
+   yarn
+   ```
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+4. Start the app in development mode (hot-code reloading, lint errors in console, etc.):
 
-### `yarn build`
+   ```
+   yarn start
+   ```
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Running tests
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+To launch the test runner in the interactive watch mode:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+yarn test
+```
 
-### `yarn eject`
+See the official documentation on [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Build app for production
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+yarn build
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Builds the app for production to the `build` folder, which correctly bundles React in production mode and optimizes the build for the best performance.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+The build is minified and the filenames include the hashes, after which your app is ready to be deployed!
 
-## Learn More
+See the official documentation about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Note on `yarn eject`
+
+**`yarn eject` is a one-way operation. Once you `eject`, you can’t go back!**
+
+With this command you can remove the single build dependency from our CRA project.
+
+## CRA and React documentation
+
+To learn more about Craete React App (CRA), you can go here: [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
