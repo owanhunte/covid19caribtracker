@@ -1,7 +1,7 @@
 {
   "name": "Covid-19 Caribbean App",
   "short_name": "Covid19CaribApp",
-  "description": "Tracking and reporting on the COVID-19 Corona virus outbreak relevant to the Caribbean region.",
+  "description": "Stats, news and other data relevant to the Caribbean region, on the COVID-19 Corona virus.",
   "icons": [
     {
       "src": "favicon.ico",
