@@ -12,7 +12,6 @@ body {
   color: rgb(41, 43, 44);
   margin: 0;
   padding: 0;
-  min-height: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

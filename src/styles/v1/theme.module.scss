@@ -1,10 +1,5 @@
 .appRoot {
   position: relative;
-  min-height: 100%;
-
-  &.isFullScreen {
-    height: 100vh;
-  }
 }
 
 .appHeader {
@@ -23,7 +18,32 @@
   }
 }
 
+.appFooter {
+  background-color: rgb(31, 31, 31);
+  color: rgba(0, 0, 0, 0.87);
+  text-align: center;
+  flex: 0 1 auto;
+  flex-wrap: wrap;
+  transition-duration: 0.2s;
+  transition-property: background-color, left, right;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  a {
+    color: rgb(170, 170, 170);
+
+    &:hover,
+    &:active {
+      color: rgb(255, 255, 255);
+    }
+  }
+}
+
+.justifyCenter {
+  justify-content: center;
+}
+
 .appMain {
+  padding: 20px 16px;
   width: 100%;
 }
 
@@ -78,6 +98,24 @@ body {
       font-size: 1.25rem;
     }
   }
+
+  .caption {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.0333333333em;
+    line-height: 1.25rem;
+  }
+}
+
+.footerDiv1 {
+  padding: 12px 0;
+  background-color: rgb(32, 35, 42);
+  color: rgb(204, 204, 204);
+}
+
+.footerDiv2 {
+  color: rgb(222, 222, 222);
+  padding: 12px 0;
 }
 
 @media (min-width: 600px) {
@@ -88,7 +126,7 @@ body {
     }
   }
 
-  .mainSection {
-    padding: 24px 28px;
+  .appMain {
+    padding: 64px 28px 22px;
   }
 }

@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react";
 import AppHeader from "./AppHeader";
+import AppFooter from "./AppFooter";
 import styles from "../../../styles/v1/theme.module.scss";
 import cx from "classnames";
 
@@ -12,6 +13,7 @@ const Layout: FunctionComponent<Props> = ({ children }) => {
     <div className={cx(styles.appRoot, styles.isFullScreen)}>
       <AppHeader />
       <main className={styles.appMain}>{children}</main>
+      <AppFooter />
     </div>
   );
 };
