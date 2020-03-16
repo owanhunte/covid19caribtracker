@@ -1,0 +1,94 @@
+.appRoot {
+  position: relative;
+  min-height: 100%;
+
+  &.isFullScreen {
+    height: 100vh;
+  }
+}
+
+.appHeader {
+  width: 100%;
+
+  .siteName {
+    flex-grow: 1;
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1.6;
+    margin: 0 0 2px;
+
+    a {
+      color: rgb(255, 255, 255);
+    }
+  }
+}
+
+.appMain {
+  width: 100%;
+}
+
+body {
+  .appBar {
+    background: rgb(40, 40, 42);
+  }
+
+  .navLink {
+    color: rgb(221, 221, 221);
+
+    &:hover,
+    &:active {
+      color: rgb(255, 255, 255);
+    }
+
+    button {
+      border-radius: 2px;
+      font-family: "Roboto Condensed", sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+  }
+
+  .drawerPaper {
+    background: rgb(175, 11, 28);
+    color: rgb(255, 255, 255);
+
+    .drawerContentWrap {
+      width: 240px;
+    }
+
+    .drawerContentHeader {
+      background: rgb(63, 81, 181);
+      padding: 13px 20px 10px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .drawerContentList {
+      > a {
+        color: rgb(255, 255, 255);
+      }
+    }
+
+    .drawerItemIcon {
+      color: rgb(255, 255, 255);
+      min-width: 46px;
+    }
+
+    .drawerSvgIcon {
+      font-size: 1.25rem;
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .appBar {
+    .appBarToolbar {
+      padding-left: 28px;
+      padding-right: 28px;
+    }
+  }
+
+  .mainSection {
+    padding: 24px 28px;
+  }
+}
