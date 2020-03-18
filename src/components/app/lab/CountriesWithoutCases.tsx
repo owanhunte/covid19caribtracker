@@ -1,0 +1,23 @@
+import React, { useContext } from "react";
+import StatsContext from "../../../context/statsContext";
+import styles from "../../../styles/v1/theme.module.scss";
+
+const CountriesWithoutCases = () => {
+  const _statsContext = useContext(StatsContext);
+
+  return (
+    <div className={styles.withoutCases}>
+      <h4 className={styles.justifyCenter}>
+        The following Caribbean countries have no confirmed cases of Covid-19
+        coronavirus as yet:
+      </h4>
+      {_statsContext.countriesWithNoConfirmedCases?.map(country => (
+        <div key={country} className={styles.listItem}>
+          <span>{country}</span>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default CountriesWithoutCases;

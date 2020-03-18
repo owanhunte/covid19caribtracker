@@ -27,6 +27,7 @@ const SummaryStats = () => {
           value={value}
           onChange={handleChange}
           aria-label="summary stats tab"
+          centered
         >
           <Tab label="Caribbean" {...a11yProps(0)} />
           <Tab label="Global" {...a11yProps(1)} />
@@ -74,7 +75,7 @@ const SummaryStats = () => {
                     ).toLocaleString()
                   : ""}
               </div>
-              <div className={styles.label}>currently sick</div>
+              <div className={styles.label}>active</div>
             </div>
           </Grid>
         </Grid>
@@ -121,7 +122,7 @@ const SummaryStats = () => {
                     ).toLocaleString()
                   : ""}
               </div>
-              <div className={styles.label}>currently sick</div>
+              <div className={styles.label}>active</div>
             </div>
           </Grid>
         </Grid>

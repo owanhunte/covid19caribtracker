@@ -8,7 +8,12 @@ import {
   Drawer,
   useMediaQuery
 } from "@material-ui/core";
-import { Menu as MenuIcon } from "@material-ui/icons";
+import {
+  Menu as MenuIcon,
+  TableChart as TableChartIcon,
+  Description as DescriptionIcon,
+  Info as InfoIcon
+} from "@material-ui/icons";
 import { useTheme } from "@material-ui/core/styles";
 import styles from "../../../styles/v1/theme.module.scss";
 import AppDrawer from "./AppDrawer";
@@ -45,13 +50,19 @@ const AppHeader = () => {
           {matches ? (
             <React.Fragment>
               <Link className={styles.navLink} to="/stats">
-                <Button color="inherit">Stats</Button>
+                <Button color="inherit" startIcon={<TableChartIcon />}>
+                  Stats
+                </Button>
               </Link>
               <Link className={styles.navLink} to="/news">
-                <Button color="inherit">News</Button>
+                <Button color="inherit" startIcon={<DescriptionIcon />}>
+                  News
+                </Button>
               </Link>
               <Link className={styles.navLink} to="/about">
-                <Button color="inherit">About</Button>
+                <Button color="inherit" startIcon={<InfoIcon />}>
+                  About
+                </Button>
               </Link>
             </React.Fragment>
           ) : (
