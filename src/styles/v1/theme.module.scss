@@ -13,7 +13,7 @@
     margin: 0 0 2px;
 
     a {
-      color: rgb(68, 68, 68); /* rgb(255, 255, 255); */
+      color: rgb(255, 255, 255); /* rgb(68, 68, 68); */
     }
   }
 }
@@ -70,15 +70,15 @@
 
 body {
   .appBar {
-    background: rgb(255, 255, 255); /* rgb(40, 40, 42); */
+    background: rgb(40, 40, 42); /* rgb(255, 255, 255); */
   }
 
   .navLink {
-    color: rgb(25, 25, 112); /* rgb(221, 221, 221); */
+    color: rgb(221, 221, 221); /* rgb(25, 25, 112); */
 
     &:hover,
     &:active {
-      color: rgb(255, 140, 0); /* rgb(255, 255, 255); */
+      color: rgb(255, 255, 255); /* rgb(255, 140, 0); */
     }
 
     button {

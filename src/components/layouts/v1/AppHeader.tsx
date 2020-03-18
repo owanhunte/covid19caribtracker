@@ -40,7 +40,7 @@ const AppHeader = () => {
       <AppBar elevation={0} position="fixed" classes={{ root: styles.appBar }}>
         <Toolbar classes={{ root: styles.appBarToolbar }}>
           <h1 className={styles.siteName}>
-            <Link to="/">Covid-19 Caribbean</Link>
+            <Link to="/">Covid-19 Caribbean Tracker</Link>
           </h1>
           {matches ? (
             <React.Fragment>
