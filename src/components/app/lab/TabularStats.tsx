@@ -112,25 +112,33 @@ const TabularStats = () => {
       name: "cases",
       label: "Confirmed",
       dataType: ColumnDataType.Numeric,
-      formatData: (data: number) => <Box color="success.main">{data}</Box>
+      formatData: (data: string) => (
+        <Box color="success.main">{parseInt(data).toLocaleString()}</Box>
+      )
     },
     {
       name: "deaths",
       label: "Deceased",
       dataType: ColumnDataType.Numeric,
-      formatData: (data: number) => <Box color="error.main">{data}</Box>
+      formatData: (data: string) => (
+        <Box color="error.main">{parseInt(data).toLocaleString()}</Box>
+      )
     },
     {
       name: "recovered",
       label: "Recovered",
       dataType: ColumnDataType.Numeric,
-      formatData: (data: number) => <Box color="primary.main">{data}</Box>
+      formatData: (data: string) => (
+        <Box color="primary.main">{parseInt(data).toLocaleString()}</Box>
+      )
     },
     {
       name: "critical",
       label: "Critical",
       dataType: ColumnDataType.Numeric,
-      formatData: (data: number) => <Box color="warning.main">{data}</Box>
+      formatData: (data: string) => (
+        <Box color="warning.main">{parseInt(data).toLocaleString()}</Box>
+      )
     }
   ];
 
