@@ -47,7 +47,7 @@
   backface-visibility: hidden;
   display: flex;
   flex-direction: column;
-  padding: 48px 0 20px;
+  padding: 56px 0 20px;
   transition: all 1.2s ease;
   width: 100%;
 }
@@ -64,7 +64,7 @@
     rgb(35, 20, 55) 0%,
     rgb(51, 51, 51) 100%
   );
-  padding: 24px 0;
+  padding: 24px 16px;
   color: rgb(222, 222, 222);
 }
 
@@ -161,17 +161,25 @@ body {
     color: rgb(170, 183, 194);
     white-space: nowrap;
   }
+
+  &.totalCasesStat {
+    border-color: rgb(255, 69, 0);
+
+    * {
+      color: rgb(255, 69, 0);
+    }
+  }
 }
 
 .footerDiv1 {
-  padding: 12px 0;
+  padding: 12px 16px;
   background-color: rgb(32, 35, 42);
   color: rgb(204, 204, 204);
 }
 
 .footerDiv2 {
   color: rgb(222, 222, 222);
-  padding: 12px 0;
+  padding: 12px 16px;
 }
 
 @media (min-width: 600px) {

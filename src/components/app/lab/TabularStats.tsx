@@ -71,7 +71,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     toolbarTitle: {
       flex: "1 1 100%",
-      fontSize: "1.35rem"
+      fontSize: "1.45rem"
     },
     table: {
       minWidth: 750,
@@ -90,10 +90,10 @@ const useStyles = makeStyles((theme: Theme) =>
       width: "100%"
     },
     tableCell: {
-      fontSize: "13px !important"
+      fontSize: "14px !important"
     },
     tableHeadCell: {
-      fontSize: "13px !important",
+      fontSize: "14px !important",
       textTransform: "uppercase"
     }
   })
