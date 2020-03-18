@@ -41,6 +41,12 @@ export const caribbeanCountries: CountryType[] = [
     unCode: "BRB"
   },
   {
+    name: "Belize",
+    label: "Belize",
+    isoCode: "BZ",
+    unCode: "BLZ"
+  },
+  {
     name: "British Virgin Islands",
     label: "British Virgin Islands",
     isoCode: "VG",
