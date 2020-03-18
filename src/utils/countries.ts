@@ -83,6 +83,18 @@ export const caribbeanCountries: CountryType[] = [
     unCode: "GUY"
   },
   {
+    name: "Haiti",
+    label: "Haiti",
+    isoCode: "HT",
+    unCode: "HTI"
+  },
+  {
+    name: "Honduras",
+    label: "Honduras",
+    isoCode: "HN",
+    unCode: "HND"
+  },
+  {
     name: "Jamaica",
     label: "Jamaica",
     isoCode: "JM",
@@ -93,6 +105,24 @@ export const caribbeanCountries: CountryType[] = [
     label: "Martinique",
     isoCode: "MQ",
     unCode: "MTQ"
+  },
+  {
+    name: "Montserrat",
+    label: "Montserrat",
+    isoCode: "MS",
+    unCode: "MSR"
+  },
+  {
+    name: "Nicaragua",
+    label: "Nicaragua",
+    isoCode: "NI",
+    unCode: "NIC"
+  },
+  {
+    name: "Panama",
+    label: "Panama",
+    isoCode: "PA",
+    unCode: "PAN"
   },
   {
     name: "Puerto Rico",
