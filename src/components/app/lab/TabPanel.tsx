@@ -22,7 +22,7 @@ const TabPanel = (props: TabPanelProps) => {
       aria-labelledby={`${tabPrefix}-${index}`}
       {...other}
     >
-      {value === index && <Box p={3}>{children}</Box>}
+      {value === index && <Box p={2}>{children}</Box>}
     </Typography>
   );
 };

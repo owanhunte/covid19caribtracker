@@ -9,6 +9,7 @@ export interface TotalStatsType {
 export interface StatsByCountryType {
   country: string;
   label?: string;
+  isoCode?: string;
   cases: number;
   todayCases: number;
   deaths: number;
@@ -22,7 +23,7 @@ export interface StatsContextType {
   totalStats?: TotalStatsType;
   totalCaribbeanStats?: TotalStatsType;
   statsByCountry?: StatsByCountryType[];
-  countriesWithNoConfirmedCases?: string[];
+  countriesWithNoConfirmedCases?: { label: string; isoCode: string }[];
   cacheExpiresOn?: number;
 }
 

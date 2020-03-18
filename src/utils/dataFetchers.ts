@@ -1,16 +1,7 @@
 import axios from "axios";
 import apiEndpoints from "./apiEndpoints";
-import { caribbeanCountries, CountryNameType } from "./countries";
+import { caribbeanCountries } from "./countries";
 import { StatsByCountryType, TotalStatsType } from "../context/statsContext";
-
-export const getCaribbeanCountryNames = () => {
-  return caribbeanCountries.reduce(
-    (accumulator, currentValue) => {
-      accumulator.push({ name: currentValue.name, label: currentValue.label });
-      return accumulator;
-    }, [] as CountryNameType[]
-  );
-}
 
 export const getTotalGlobalStats = async () => {
   try {
@@ -26,9 +17,9 @@ export const getTotalGlobalStats = async () => {
 export const getStatsByCountry = async () => {
   try {
     const response = await axios.get(apiEndpoints.statsByCountry);
-    const countryNamesMap = getCaribbeanCountryNames().reduce(
+    const countryNamesMap = caribbeanCountries.reduce(
       (accumulator, currentValue) => {
-        accumulator[currentValue.name] = { hasConfirmedCases: false, displayLabel: currentValue.label };
+        accumulator[currentValue.name] = { ...currentValue, hasConfirmedCases: false };
         return accumulator;
       }, {} as any
     );
@@ -36,17 +27,20 @@ export const getStatsByCountry = async () => {
     const filteredStats: StatsByCountryType[] = response.data.reduce(
       (accumulator: StatsByCountryType[], currentValue: StatsByCountryType) => {
         if (countryNamesMap.hasOwnProperty(currentValue.country)) {
-          accumulator.push({ ...currentValue, label: countryNamesMap[currentValue.country].displayLabel });
+          accumulator.push({ ...currentValue, label: countryNamesMap[currentValue.country].label, isoCode: countryNamesMap[currentValue.country].isoCode });
           countryNamesMap[currentValue.country].hasConfirmedCases = true;
         }
         return accumulator;
       }, [] as StatsByCountryType[]
     );
 
-    const countriesWithNoConfirmedCases: string[] = [];
+    const countriesWithNoConfirmedCases: any[] = [];
     for (const key in countryNamesMap) {
       if (countryNamesMap.hasOwnProperty(key) && !(countryNamesMap[key].hasConfirmedCases)) {
-        countriesWithNoConfirmedCases.push(countryNamesMap[key].displayLabel);
+        countriesWithNoConfirmedCases.push({
+          label: countryNamesMap[key].label,
+          isoCode: countryNamesMap[key].isoCode
+        });
       }
     }
 

@@ -19,6 +19,9 @@ const Home = () => {
             <div className={styles.simpleTabs}>
               <SummaryStats />
             </div>
+            <div className={styles.updateNote}>
+              Note: Not all countries are updated at the same time
+            </div>
           </Grid>
         </Grid>
       </section>

@@ -12,6 +12,11 @@ import {
   Box
 } from "@material-ui/core";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import {
+  caribbeanCountries,
+  countryToFlag,
+  CountryType
+} from "../../../utils/countries";
 import StatsContext, {
   StatsByCountryType
 } from "../../../context/statsContext";
@@ -90,11 +95,15 @@ const useStyles = makeStyles((theme: Theme) =>
       width: "100%"
     },
     tableCell: {
-      fontSize: "14px !important"
+      fontSize: "14px !important",
+      whiteSpace: "nowrap"
     },
     tableHeadCell: {
       fontSize: "14px !important",
       textTransform: "uppercase"
+    },
+    inlineFlag: {
+      marginRight: 10
     }
   })
 );
@@ -106,7 +115,26 @@ const TabularStats = () => {
     {
       name: "label",
       label: "Country",
-      dataType: ColumnDataType.String
+      dataType: ColumnDataType.String,
+      formatData: (data: string) => {
+        // Get the isoCode for this country.
+        let country: CountryType = caribbeanCountries[0];
+        for (let index = 0; index < caribbeanCountries.length; index++) {
+          country = caribbeanCountries[index];
+          if (country.label === data) {
+            break;
+          }
+        }
+
+        return (
+          <React.Fragment>
+            <span className={classes.inlineFlag}>
+              {countryToFlag(country.isoCode)}
+            </span>
+            <span>{country.label}</span>
+          </React.Fragment>
+        );
+      }
     },
     {
       name: "cases",
