@@ -20,7 +20,7 @@ const AppFooter = () => {
       </div>
       <div className={cx(styles.caption, styles.footerDiv2)}>
         Stats, news and other data relevant to the Caribbean region, on the
-        COVID-19 Corona virus.
+        COVID-19 Coronavirus.
       </div>
     </footer>
   );

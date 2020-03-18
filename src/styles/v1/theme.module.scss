@@ -13,7 +13,7 @@
     margin: 0 0 2px;
 
     a {
-      color: rgb(255, 255, 255);
+      color: rgb(68, 68, 68); /* rgb(255, 255, 255); */
     }
   }
 }
@@ -43,21 +43,40 @@
 }
 
 .appMain {
-  padding: 48px 16px 20px;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 48px 0 20px;
+  transition: all 1.2s ease;
   width: 100%;
+}
+
+.contentPad {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.contentTop {
+  background-color: rgb(35, 20, 55);
+  background-image: linear-gradient(
+    135deg,
+    rgb(35, 20, 55) 0%,
+    rgb(51, 51, 51) 100%
+  );
+  padding: 24px 0;
 }
 
 body {
   .appBar {
-    background: rgb(40, 40, 42);
+    background: rgb(255, 255, 255); /* rgb(40, 40, 42); */
   }
 
   .navLink {
-    color: rgb(221, 221, 221);
+    color: rgb(25, 25, 112); /* rgb(221, 221, 221); */
 
     &:hover,
     &:active {
-      color: rgb(255, 255, 255);
+      color: rgb(255, 140, 0); /* rgb(255, 255, 255); */
     }
 
     button {
@@ -65,6 +84,10 @@ body {
       font-family: "Roboto Condensed", sans-serif;
       font-size: 1rem;
       font-weight: 700;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.02);
+      }
     }
   }
 
@@ -107,6 +130,11 @@ body {
   }
 }
 
+.simpleTabs {
+  background-color: rgb(255, 255, 255);
+  flex-grow: 1;
+}
+
 .footerDiv1 {
   padding: 12px 0;
   background-color: rgb(32, 35, 42);
@@ -127,6 +155,11 @@ body {
   }
 
   .appMain {
-    padding: 64px 28px 22px;
+    padding: 64px 0 22px;
+  }
+
+  .contentPad {
+    padding-left: 28px;
+    padding-right: 28px;
   }
 }
