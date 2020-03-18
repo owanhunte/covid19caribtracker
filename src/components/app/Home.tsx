@@ -11,10 +11,10 @@ const Home = () => {
     <React.Fragment>
       <section className={cx(styles.contentPad, styles.contentTop)}>
         <Grid container spacing={3}>
-          <Grid item sm={12} md={8}>
+          <Grid item xs={12} sm={12} md={8}>
             <TabularStats />
           </Grid>
-          <Grid item sm={12} md={4}>
+          <Grid item xs={12} sm={12} md={4}>
             <h2 className={styles.justifyCenter}>Data Summary</h2>
             <div className={styles.simpleTabs}>
               <SummaryStats />
