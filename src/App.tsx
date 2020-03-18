@@ -7,7 +7,7 @@ import Layout from "./components/layouts/v1/Layout";
 import ms from "ms";
 
 const Home = lazy(() => import("./components/app/Home"));
-const Stats = lazy(() => import("./components/app/Stats"));
+// const Stats = lazy(() => import("./components/app/Stats"));
 const News = lazy(() => import("./components/app/News"));
 const About = lazy(() => import("./components/app/About"));
 
@@ -52,7 +52,7 @@ const App = () => {
             cacheExpiresOn: Date.now() + parseInt(ms("15m").toString())
           });
         }
-      } catch (error) {}
+      } catch (error) { }
     })();
   }, [statsState]);
 
@@ -68,7 +68,7 @@ const App = () => {
             </Route>
             <Route exact path="/stats">
               <Suspense fallback={<Loading />}>
-                <Stats />
+                <Home />
               </Suspense>
             </Route>
             <Route exact path="/news">
