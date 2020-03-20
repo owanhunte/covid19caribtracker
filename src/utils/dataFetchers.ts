@@ -6,7 +6,11 @@ import { StatsByCountryType, TotalStatsType } from "../context/statsContext";
 export const getTotalGlobalStats = async () => {
   try {
     const response = await axios.get(apiEndpoints.globalStatsSummary);
-    return (response.data as TotalStatsType);
+    return ({
+      cases: response.data.data.attributes.total_cases,
+      deaths: response.data.data.attributes.total_deaths,
+      recovered: response.data.data.attributes.total_recovered
+    } as TotalStatsType);
   }
   catch (error) {
     // TODO: Log error to sentry.io, then re-throw error.
