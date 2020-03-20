@@ -97,14 +97,28 @@ const useStyles = makeStyles((theme: Theme) =>
     tableCell: {
       fontSize: "14px !important",
       whiteSpace: "nowrap",
-      padding: "11px 12px 11px 12px",
+      padding: "11px 12px 11px 12px !important",
       overflow: "hidden",
-      textOverflow: "ellipsis"
+      textOverflow: "ellipsis",
+
+      "&:first-child": {
+        width: 160,
+        [theme.breakpoints.up("sm")]: {
+          width: 175
+        }
+      }
     },
     tableHeadCell: {
       fontSize: "14px !important",
       textTransform: "uppercase",
-      padding: "11px 12px 11px 12px"
+      padding: "11px 12px 11px 12px",
+
+      "&:first-child": {
+        width: 160,
+        [theme.breakpoints.up("sm")]: {
+          width: 175
+        }
+      }
     },
     inlineFlag: {
       marginRight: 10

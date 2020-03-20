@@ -37,7 +37,7 @@ const Home = () => {
                 <em>Note: Not all countries may be updated at the same time</em>
                 )
               </p>
-              <p>
+              <p style={{ marginBottom: 0 }}>
                 Last updated:&nbsp;&nbsp;
                 {_statsContext.lastUpdated &&
                   `${formatDistanceToNow(_statsContext.lastUpdated)} ago`}
