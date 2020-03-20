@@ -20,7 +20,16 @@ const Home = () => {
               <SummaryStats />
             </div>
             <div className={styles.updateNote}>
-              Note: Not all countries are updated at the same time
+              <strong> Data Source:&nbsp;&nbsp;</strong>
+              <a
+                href="https://www.worldometers.info/coronavirus/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Worldometers.info
+              </a>
+              <br />(
+              <em>Note: Not all countries may be updated at the same time</em>)
             </div>
           </Grid>
         </Grid>
