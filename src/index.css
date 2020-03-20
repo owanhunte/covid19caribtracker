@@ -46,9 +46,15 @@ a {
 }
 
 p {
-  margin: 0 0 1.1rem;
+  margin: 0 0 1rem;
 }
 
 .no-wrap {
   white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  h2 {
+    margin-top: 0.25rem;
+  }
 }
