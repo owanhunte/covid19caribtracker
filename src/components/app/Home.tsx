@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Grid } from "@material-ui/core";
+import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import TabularStats from "./lab/TabularStats";
 import SummaryStats from "./lab/SummaryStats";
 import CountriesWithoutCases from "./lab/CountriesWithoutCases";
+import StatsContext from "../../context/statsContext";
 import styles from "../../styles/v1/theme.module.scss";
 import cx from "classnames";
 
 const Home = () => {
+  const _statsContext = useContext(StatsContext);
+
   return (
     <React.Fragment>
       <section className={cx(styles.contentPad, styles.contentTop)}>
@@ -20,16 +24,24 @@ const Home = () => {
               <SummaryStats />
             </div>
             <div className={styles.updateNote}>
-              <strong> Data Source:&nbsp;&nbsp;</strong>
-              <a
-                href="https://www.worldometers.info/coronavirus/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Worldometers.info
-              </a>
-              <br />(
-              <em>Note: Not all countries may be updated at the same time</em>)
+              <p>
+                <strong>Data Source:&nbsp;&nbsp;</strong>
+                <a
+                  href="https://www.worldometers.info/coronavirus/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Worldometers.info
+                </a>
+                <br />(
+                <em>Note: Not all countries may be updated at the same time</em>
+                )
+              </p>
+              <p>
+                Last updated:&nbsp;&nbsp;
+                {_statsContext.lastUpdated &&
+                  `${formatDistanceToNow(_statsContext.lastUpdated)} ago`}
+              </p>
             </div>
           </Grid>
         </Grid>

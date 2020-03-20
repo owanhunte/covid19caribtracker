@@ -30,29 +30,37 @@ const App = () => {
             getTotalGlobalStats(),
             getStatsByCountry()
           ]);
+
           const summaryCaribbeanStats = statsData[1].statsByCountry.reduce(
             (accumulator, currentValue) => {
               accumulator.cases += currentValue.cases;
               accumulator.deaths += currentValue.deaths;
               accumulator.recovered += currentValue.recovered;
+
+              if (statsData[0].lastUpdated < currentValue.lastUpdated) {
+                accumulator.lastUpdated = currentValue.lastUpdated;
+              }
               return accumulator;
             },
             {
               cases: 0,
               deaths: 0,
-              recovered: 0
+              recovered: 0,
+              lastUpdated: statsData[0].lastUpdated
             }
           );
+
           setStatsState({
             totalStats: statsData[0],
             totalCaribbeanStats: summaryCaribbeanStats,
             statsByCountry: statsData[1].statsByCountry,
             countriesWithNoConfirmedCases:
               statsData[1].countriesWithNoConfirmedCases,
+            lastUpdated: summaryCaribbeanStats.lastUpdated,
             cacheExpiresOn: Date.now() + parseInt(ms("15m").toString())
           });
         }
-      } catch (error) { }
+      } catch (error) {}
     })();
   }, [statsState]);
 

@@ -4,6 +4,7 @@ export interface TotalStatsType {
   cases: number;
   deaths: number;
   recovered: number;
+  lastUpdated: Date;
 }
 
 export interface StatsByCountryType {
@@ -16,6 +17,7 @@ export interface StatsByCountryType {
   recovered: number;
   active: number;
   critical: number;
+  lastUpdated: Date;
 }
 
 export interface StatsContextType {
@@ -23,6 +25,7 @@ export interface StatsContextType {
   totalCaribbeanStats?: TotalStatsType;
   statsByCountry?: StatsByCountryType[];
   countriesWithNoConfirmedCases?: { label: string; isoCode: string }[];
+  lastUpdated?: Date;
   cacheExpiresOn?: number;
 }
 
