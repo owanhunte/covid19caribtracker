@@ -96,14 +96,26 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     tableCell: {
       fontSize: "14px !important",
-      whiteSpace: "nowrap"
+      whiteSpace: "nowrap",
+      padding: "11px 12px 11px 12px",
+      overflow: "hidden",
+      textOverflow: "ellipsis"
     },
     tableHeadCell: {
       fontSize: "14px !important",
-      textTransform: "uppercase"
+      textTransform: "uppercase",
+      padding: "11px 12px 11px 12px"
     },
     inlineFlag: {
       marginRight: 10
+    },
+    newCasesStyle: {
+      backgroundColor: "rgb(255,238,170)",
+      fontWeight: 500,
+      paddingTop: 11,
+      paddingBottom: 11,
+      marginTop: "-21px",
+      marginBottom: "-22px"
     }
   })
 );
@@ -113,7 +125,7 @@ const TabularStats = () => {
   const classes = useStyles();
   const headCells: HeadCell[] = [
     {
-      name: "label",
+      name: "country",
       label: "Country",
       dataType: ColumnDataType.String,
       formatData: (data: string) => {
@@ -121,7 +133,7 @@ const TabularStats = () => {
         let country: CountryType = caribbeanCountries[0];
         for (let index = 0; index < caribbeanCountries.length; index++) {
           country = caribbeanCountries[index];
-          if (country.label === data) {
+          if (country.name === data) {
             break;
           }
         }
@@ -131,7 +143,7 @@ const TabularStats = () => {
             <span className={classes.inlineFlag}>
               {countryToFlag(country.isoCode)}
             </span>
-            <span>{country.label}</span>
+            <span>{country.name}</span>
           </React.Fragment>
         );
       }
@@ -143,6 +155,20 @@ const TabularStats = () => {
       formatData: (data: string) => (
         <Box color="success.main">{parseInt(data).toLocaleString()}</Box>
       )
+    },
+    {
+      name: "todayCases",
+      label: "New Cases",
+      dataType: ColumnDataType.Numeric,
+      formatData: (data: string) => {
+        return data ? (
+          <Box className={classes.newCasesStyle}>
+            +{parseInt(data).toLocaleString()}
+          </Box>
+        ) : (
+          <Box>{parseInt(data).toLocaleString()}</Box>
+        );
+      }
     },
     {
       name: "deaths",

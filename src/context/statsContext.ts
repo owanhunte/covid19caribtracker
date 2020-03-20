@@ -8,7 +8,6 @@ export interface TotalStatsType {
 
 export interface StatsByCountryType {
   country: string;
-  label?: string;
   isoCode?: string;
   cases: number;
   todayCases: number;
