@@ -143,7 +143,7 @@ const TabularStats = () => {
             <span className={classes.inlineFlag}>
               {countryToFlag(country.isoCode)}
             </span>
-            <span>{country.name}</span>
+            <span title={country.name}>{country.name}</span>
           </React.Fragment>
         );
       }
