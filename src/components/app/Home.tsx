@@ -4,6 +4,7 @@ import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import TabularStats from "./lab/TabularStats";
 import SummaryStats from "./lab/SummaryStats";
 import CountriesWithoutCases from "./lab/CountriesWithoutCases";
+import LatestNews from "./News/LatestNews";
 import StatsContext from "../../context/statsContext";
 import styles from "../../styles/v1/theme.module.scss";
 import cx from "classnames";
@@ -49,6 +50,10 @@ const Home = () => {
 
       <section className={cx(styles.contentPad, styles.sectionLight)}>
         <CountriesWithoutCases />
+      </section>
+
+      <section className={cx(styles.contentPad, styles.sectionNormal)}>
+        <LatestNews />
       </section>
     </React.Fragment>
   );

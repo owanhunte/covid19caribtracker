@@ -1,6 +1,6 @@
 import axios from "axios";
 import parseISO from "date-fns/parseISO";
-import apiEndpoints from "./apiEndpoints";
+import apiEndpoints, { apiEnginePublicBase } from "./apiEndpoints";
 import { caribbeanCountries } from "./countries";
 import { StatsByCountryType, TotalStatsType } from "../context/statsContext";
 
@@ -16,7 +16,6 @@ export const getTotalGlobalStats = async () => {
   }
   catch (error) {
     // TODO: Log error to sentry.io, then re-throw error.
-    console.log(error);
     throw error;
   }
 };
@@ -72,3 +71,73 @@ export const getStatsByCountry = async () => {
     throw error;
   }
 }
+
+export interface Tag {
+  uuid: string;
+  name: string;
+}
+
+export interface NewsPost {
+  uuid: string;
+  title: string;
+  path: string;
+  image_url: string;
+  image_alt: string;
+  body: string;
+  summary: string;
+  tags: Tag[];
+  created: Date;
+}
+
+const fallbackImage = "https://engine.covid19caribtracker.com/sites/default/files/2020-03/covid-19-update.jpg";
+const fallbackImageAlt = "Covid-19 Coronavirus News update";
+
+const getPostDetail = async (data: any): Promise<NewsPost> => {
+  let item: NewsPost = {
+    uuid: data.id,
+    created: parseISO(data.attributes.createdAt),
+    title: data.attributes.title,
+    path: data.attributes.path,
+    image_url: fallbackImage,
+    image_alt: fallbackImageAlt,
+    body: data.attributes.body.processed,
+    summary: data.attributes.body.summary,
+    tags: []
+  };
+
+  // Get article image.
+  try {
+    const deepFetchImage = await axios.get(data.relationships.image.links.related.href);
+    const deepFetchImageField = await axios.get(deepFetchImage.data.data.relationships.imageFile.links.related.href);
+    item.image_url = `${apiEnginePublicBase}${deepFetchImageField.data.data.attributes.uri.url}`
+    item.image_alt = deepFetchImage.data.data.relationships.imageFile.data.meta.alt ?? fallbackImageAlt;
+  } catch (error) {
+    // TODO: Log error to sentry.io.
+  }
+
+  // Get article tags.
+  try {
+    const deepFetchTags = await axios.get(data.relationships.tags.links.related.href);
+    deepFetchTags.data.data.forEach((element: any) => {
+      item.tags.push({
+        uuid: element.id,
+        name: element.attributes.name
+      });
+    });
+  } catch (error) {
+    // TODO: Log error to sentry.io
+  }
+
+  return item;
+};
+
+export const getLatestNews = async (): Promise<NewsPost[]> => {
+  try {
+    const response = await axios.get(`${apiEndpoints.newsArticles}?sort=-createdAt&page[limit]=6`);
+    return Promise.all(response.data.data.map(async (item: any) => getPostDetail(item)));
+  }
+  catch (error) {
+    // TODO: Log error to sentry.io, then re-throw error.
+    throw error;
+  }
+};
