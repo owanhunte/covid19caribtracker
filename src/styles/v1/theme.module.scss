@@ -298,24 +298,9 @@ body {
   }
 }
 
-.viewAllLink {
+.viewMore {
   text-align: center;
   padding-top: 22px;
-
-  a {
-    display: inline-block;
-    border-radius: 2px;
-    padding: 12px 25px;
-    border: 1px solid rgb(222, 222, 222);
-    text-transform: uppercase;
-    font-size: 0.85rem;
-    color: rgb(61, 61, 61);
-
-    &:hover,
-    &:active {
-      background-color: rgb(247, 247, 247);
-    }
-  }
 }
 
 .inlineFlag {

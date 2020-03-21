@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { Grid } from "@material-ui/core";
+import { Button, Grid } from "@material-ui/core";
 import EventIcon from "@material-ui/icons/Event";
 import format from "date-fns/format";
 import { getLatestNews, NewsPost } from "../../../utils/dataFetchers";
@@ -44,19 +43,23 @@ const LatestNews = () => {
         {posts.data.map(post => (
           <Grid item xs={12} sm={4} md={4} key={post.uuid}>
             <article>
-              <Link to={post.path}>
+              <a href={post.link} target="_blank" rel="noopener noreferrer">
                 <div
                   className={styles.image}
                   style={{
                     backgroundImage: `url(${post.image_url})`
                   }}
                 ></div>
-              </Link>
+              </a>
               <h3>
-                <Link to={post.path}>{post.title}</Link>
+                <a href={post.link} target="_blank" rel="noopener noreferrer">
+                  {post.title}
+                </a>
               </h3>
               <p className={styles.summary}>
-                <Link to={post.path}>{post.summary}</Link>
+                <a href={post.link} target="_blank" rel="noopener noreferrer">
+                  {post.summary}
+                </a>
               </p>
               <div className={styles.postedDate}>
                 <EventIcon />
@@ -66,8 +69,10 @@ const LatestNews = () => {
           </Grid>
         ))}
       </Grid>
-      <div className={styles.viewAllLink}>
-        <Link to="/news">View More</Link>
+      <div className={styles.viewMore}>
+        <Button variant="contained" color="primary">
+          More
+        </Button>
       </div>
     </div>
   );

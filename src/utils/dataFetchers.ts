@@ -80,7 +80,7 @@ export interface Tag {
 export interface NewsPost {
   uuid: string;
   title: string;
-  path: string;
+  link: string;
   image_url: string;
   image_alt: string;
   body: string;
@@ -97,7 +97,7 @@ const getPostDetail = async (data: any): Promise<NewsPost> => {
     uuid: data.id,
     created: parseISO(data.attributes.createdAt),
     title: data.attributes.title,
-    path: data.attributes.path,
+    link: data.attributes.source_url.uri,
     image_url: fallbackImage,
     image_alt: fallbackImageAlt,
     body: data.attributes.body.processed,
