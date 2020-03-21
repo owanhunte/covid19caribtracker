@@ -133,7 +133,7 @@ const getPostDetail = async (data: any): Promise<NewsPost> => {
 
 export const getLatestNews = async (): Promise<NewsPost[]> => {
   try {
-    const response = await axios.get(`${apiEndpoints.newsArticles}?sort=-createdAt&page[limit]=6`);
+    const response = await axios.get(`${apiEndpoints.newsArticles}?sort=-createdAt`);
     return Promise.all(response.data.data.map(async (item: any) => getPostDetail(item)));
   }
   catch (error) {

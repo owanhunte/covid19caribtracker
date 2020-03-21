@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button, Grid } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import EventIcon from "@material-ui/icons/Event";
 import format from "date-fns/format";
 import { getLatestNews, NewsPost } from "../../../utils/dataFetchers";
@@ -69,11 +69,6 @@ const LatestNews = () => {
           </Grid>
         ))}
       </Grid>
-      <div className={styles.viewMore}>
-        <Button variant="contained" color="primary">
-          More
-        </Button>
-      </div>
     </div>
   );
 };
