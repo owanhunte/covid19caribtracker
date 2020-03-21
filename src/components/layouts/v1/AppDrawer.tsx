@@ -1,15 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { Link } from "react-router-dom";
+import { List, ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
 import {
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  Divider
-} from "@material-ui/core";
-import {
-  Home as HomeIcon,
-  TableChart as TableChartIcon,
   Description as DescriptionIcon,
   Info as InfoIcon
 } from "@material-ui/icons";
@@ -23,14 +15,9 @@ const AppDrawer: FunctionComponent<Props> = ({ toggleAppDrawer }) => {
   const menus = {
     main: [
       {
-        label: "Covid-19 Stats",
-        icon: <TableChartIcon classes={{ root: styles.drawerSvgIcon }} />,
-        link: "/stats"
-      },
-      {
-        label: "Covid-19 News",
+        label: "Stats & News",
         icon: <DescriptionIcon classes={{ root: styles.drawerSvgIcon }} />,
-        link: "/news"
+        link: "/"
       },
       {
         label: "About",
@@ -48,17 +35,6 @@ const AppDrawer: FunctionComponent<Props> = ({ toggleAppDrawer }) => {
       onKeyDown={toggleAppDrawer(false)}
     >
       <div className={styles.drawerContentHeader}>Browse</div>
-      <List component="div" classes={{ root: styles.drawerContentList }}>
-        <Link to="/">
-          <ListItem dense button>
-            <ListItemIcon classes={{ root: styles.drawerItemIcon }}>
-              <HomeIcon classes={{ root: styles.drawerSvgIcon }} />
-            </ListItemIcon>
-            <ListItemText primary="Home" />
-          </ListItem>
-        </Link>
-      </List>
-      <Divider />
       <List component="div" classes={{ root: styles.drawerContentList }}>
         {menus.main.map(item => (
           <Link to={item.link} key={item.label}>

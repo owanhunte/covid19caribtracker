@@ -7,8 +7,6 @@ import Layout from "./components/layouts/v1/Layout";
 import ms from "ms";
 
 const Home = lazy(() => import("./components/app/Home"));
-// const Stats = lazy(() => import("./components/app/Stats"));
-const News = lazy(() => import("./components/app/News"));
 const About = lazy(() => import("./components/app/About"));
 
 const App = () => {
@@ -72,16 +70,6 @@ const App = () => {
             <Route exact path="/">
               <Suspense fallback={<Loading />}>
                 <Home />
-              </Suspense>
-            </Route>
-            <Route exact path="/stats">
-              <Suspense fallback={<Loading />}>
-                <Home />
-              </Suspense>
-            </Route>
-            <Route exact path="/news">
-              <Suspense fallback={<Loading />}>
-                <News />
               </Suspense>
             </Route>
             <Route exact path="/about">

@@ -10,7 +10,6 @@ import {
 } from "@material-ui/core";
 import {
   Menu as MenuIcon,
-  TableChart as TableChartIcon,
   Description as DescriptionIcon,
   Info as InfoIcon
 } from "@material-ui/icons";
@@ -49,14 +48,9 @@ const AppHeader = () => {
           </h1>
           {matches ? (
             <React.Fragment>
-              <Link className={styles.navLink} to="/stats">
-                <Button color="inherit" startIcon={<TableChartIcon />}>
-                  Stats
-                </Button>
-              </Link>
-              <Link className={styles.navLink} to="/news">
+              <Link className={styles.navLink} to="/">
                 <Button color="inherit" startIcon={<DescriptionIcon />}>
-                  News
+                  Stats &amp; News
                 </Button>
               </Link>
               <Link className={styles.navLink} to="/about">
