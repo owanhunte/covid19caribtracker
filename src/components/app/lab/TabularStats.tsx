@@ -11,6 +11,7 @@ import {
   TableCell,
   Box
 } from "@material-ui/core";
+import Skeleton from "@material-ui/lab/Skeleton";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import {
   caribbeanCountries,
@@ -130,6 +131,9 @@ const useStyles = makeStyles((theme: Theme) =>
       paddingBottom: 11,
       marginTop: "-21px",
       marginBottom: "-22px"
+    },
+    skeleton: {
+      margin: "20px auto 0"
     }
   })
 );
@@ -272,6 +276,18 @@ const TabularStats = () => {
                     </TableRow>
                   );
                 })}
+              {!_statsContext.statsByCountry && (
+                <Skeleton
+                  component="div"
+                  variant="rect"
+                  animation="wave"
+                  width="90%"
+                  height={200}
+                  classes={{
+                    root: classes.skeleton
+                  }}
+                />
+              )}
             </TableBody>
           </Table>
         </TableContainer>
