@@ -53,6 +53,6 @@ With this command you can remove the single build dependency from our CRA projec
 
 ## CRA and React documentation
 
-To learn more about Craete React App (CRA), you can go here: [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To learn more about Create React App (CRA), you can go here: [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
