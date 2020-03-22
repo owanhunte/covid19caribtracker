@@ -31,6 +31,11 @@ export const caribbeanCountries: CountryType[] = [
     unCode: "ABW"
   },
   {
+    name: "Bahamas",
+    isoCode: "BS",
+    unCode: "BHS"
+  },
+  {
     name: "Barbados",
     isoCode: "BB",
     unCode: "BRB"
@@ -39,6 +44,11 @@ export const caribbeanCountries: CountryType[] = [
     name: "Belize",
     isoCode: "BZ",
     unCode: "BLZ"
+  },
+  {
+    name: "Bermuda",
+    isoCode: "BM",
+    unCode: "BMU"
   },
   {
     name: "British Virgin Islands",
@@ -156,9 +166,19 @@ export const caribbeanCountries: CountryType[] = [
     unCode: "VCT"
   },
   {
+    name: "Suriname",
+    isoCode: "SR",
+    unCode: "SUR"
+  },
+  {
     name: "Trinidad and Tobago",
     isoCode: "TT",
     unCode: "TTO"
+  },
+  {
+    name: "Turks and Caicos Islands",
+    isoCode: "TC",
+    unCode: "TCA"
   },
   {
     name: "U.S. Virgin Islands",
