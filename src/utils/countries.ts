@@ -81,6 +81,11 @@ export const caribbeanCountries: CountryType[] = [
     unCode: "DOM"
   },
   {
+    name: "French Guiana",
+    isoCode: "GF",
+    unCode: "GUF"
+  },
+  {
     name: "Grenada",
     isoCode: "GD",
     unCode: "GRD"
