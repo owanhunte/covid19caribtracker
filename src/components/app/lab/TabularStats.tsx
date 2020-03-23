@@ -236,19 +236,33 @@ const TabularStats = () => {
             Stats by Country
           </Typography>
         </Toolbar>
-        <TableContainer>
-          <Table
-            className={classes.table}
-            aria-label="caribbean covid-19 stats table"
-            size="small"
-          >
-            <caption>
-              Covid-19 Coronavirus stats for Caribbean countries
-            </caption>
-            <DataTableHead classes={classes} headCells={headCells} />
-            <TableBody classes={{ root: classes.tableBody }}>
-              {_statsContext.statsByCountry &&
-                _statsContext.statsByCountry.map(row => {
+        {!_statsContext.statsByCountry && (
+          <div style={{ paddingBottom: 40 }}>
+            <Skeleton
+              component="div"
+              variant="rect"
+              animation="wave"
+              width="90%"
+              height={300}
+              classes={{
+                root: classes.skeleton
+              }}
+            />
+          </div>
+        )}
+        {_statsContext.statsByCountry && (
+          <TableContainer>
+            <Table
+              className={classes.table}
+              aria-label="caribbean covid-19 stats table"
+              size="small"
+            >
+              <caption>
+                Covid-19 Coronavirus stats for Caribbean countries
+              </caption>
+              <DataTableHead classes={classes} headCells={headCells} />
+              <TableBody classes={{ root: classes.tableBody }}>
+                {_statsContext.statsByCountry.map(row => {
                   return (
                     <TableRow
                       hover
@@ -276,21 +290,10 @@ const TabularStats = () => {
                     </TableRow>
                   );
                 })}
-              {!_statsContext.statsByCountry && (
-                <Skeleton
-                  component="div"
-                  variant="rect"
-                  animation="wave"
-                  width="90%"
-                  height={200}
-                  classes={{
-                    root: classes.skeleton
-                  }}
-                />
-              )}
-            </TableBody>
-          </Table>
-        </TableContainer>
+              </TableBody>
+            </Table>
+          </TableContainer>
+        )}
       </Paper>
     </div>
   );
