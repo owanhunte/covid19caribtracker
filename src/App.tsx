@@ -67,7 +67,7 @@ const App = () => {
       <Router>
         <Layout>
           <Switch>
-            <Route exact path="/">
+            <Route path="/">
               <Suspense fallback={<Loading />}>
                 <Home />
               </Suspense>
