@@ -7,7 +7,7 @@ import Layout from "./components/layouts/v1/Layout";
 import ms from "ms";
 
 const Home = lazy(() => import("./components/app/Home"));
-const About = lazy(() => import("./components/app/About"));
+//const About = lazy(() => import("./components/app/About"));
 
 const App = () => {
   // StatsContext state.
@@ -70,11 +70,6 @@ const App = () => {
             <Route exact path="/">
               <Suspense fallback={<Loading />}>
                 <Home />
-              </Suspense>
-            </Route>
-            <Route exact path="/about">
-              <Suspense fallback={<Loading />}>
-                <About />
               </Suspense>
             </Route>
           </Switch>

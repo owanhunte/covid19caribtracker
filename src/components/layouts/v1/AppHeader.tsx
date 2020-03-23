@@ -10,8 +10,7 @@ import {
 } from "@material-ui/core";
 import {
   Menu as MenuIcon,
-  Description as DescriptionIcon,
-  Info as InfoIcon
+  Description as DescriptionIcon
 } from "@material-ui/icons";
 import { useTheme } from "@material-ui/core/styles";
 import styles from "../../../styles/v1/theme.module.scss";
@@ -51,11 +50,6 @@ const AppHeader = () => {
               <Link className={styles.navLink} to="/">
                 <Button color="inherit" startIcon={<DescriptionIcon />}>
                   Stats &amp; News
-                </Button>
-              </Link>
-              <Link className={styles.navLink} to="/about">
-                <Button color="inherit" startIcon={<InfoIcon />}>
-                  About
                 </Button>
               </Link>
             </React.Fragment>

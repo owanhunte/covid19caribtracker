@@ -1,10 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { Link } from "react-router-dom";
 import { List, ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
-import {
-  Description as DescriptionIcon,
-  Info as InfoIcon
-} from "@material-ui/icons";
+import { Description as DescriptionIcon } from "@material-ui/icons";
 import styles from "../../../styles/v1/theme.module.scss";
 
 type Props = {
@@ -18,12 +15,12 @@ const AppDrawer: FunctionComponent<Props> = ({ toggleAppDrawer }) => {
         label: "Stats & News",
         icon: <DescriptionIcon classes={{ root: styles.drawerSvgIcon }} />,
         link: "/"
-      },
-      {
-        label: "About",
-        icon: <InfoIcon classes={{ root: styles.drawerSvgIcon }} />,
-        link: "/about"
       }
+      // {
+      //   label: "About",
+      //   icon: <InfoIcon classes={{ root: styles.drawerSvgIcon }} />,
+      //   link: "/about"
+      // }
     ]
   };
 
