@@ -8,10 +8,10 @@ export const getTotalGlobalStats = async () => {
   try {
     const response = await axios.get(apiEndpoints.globalStatsSummary);
     return ({
-      cases: response.data.data.attributes.total_cases,
-      deaths: response.data.data.attributes.total_deaths,
-      recovered: response.data.data.attributes.total_recovered,
-      lastUpdated: parseISO(response.data.data.attributes.changed)
+      cases: response.data.data.attributes.cases,
+      deaths: response.data.data.attributes.deaths,
+      recovered: response.data.data.attributes.recovered,
+      lastUpdated: parseISO(response.data.data.attributes.updatedAt)
     } as TotalStatsType);
   }
   catch (error) {
