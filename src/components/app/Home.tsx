@@ -28,11 +28,11 @@ const Home = () => {
               <p>
                 <strong>Data Source:&nbsp;&nbsp;</strong>
                 <a
-                  href="https://www.worldometers.info/coronavirus/"
+                  href="https://github.com/javieraviles/covidAPI"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Worldometers.info
+                  javieraviles/covidAPI
                 </a>
                 <br />(
                 <em>Note: Not all countries may be updated at the same time</em>
