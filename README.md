@@ -1,4 +1,4 @@
-# Covid-19 Caribbean Tracker App
+# Covid-19 Caribbean Tracker Web App
 
 > React app for tracking and reporting on the COVID-19 Corona virus pandemic relevant to the Caribbean region.
 
