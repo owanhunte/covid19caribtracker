@@ -41,7 +41,7 @@ const LatestNews = () => {
       <h2 className={styles.justifyCenter}>Latest Covid-19 Caribbean News</h2>
       <Grid container spacing={4}>
         {posts.data.map(post => (
-          <Grid item xs={12} sm={4} md={4} key={post.uuid}>
+          <Grid item xs={12} sm={6} md={4} xl={3} key={post.uuid}>
             <article>
               <a href={post.link} target="_blank" rel="noopener noreferrer">
                 <div
