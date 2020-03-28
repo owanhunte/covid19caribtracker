@@ -7,22 +7,24 @@ const CountriesWithoutCases = () => {
   const _statsContext = useContext(StatsContext);
 
   return (
-    <div className={styles.withoutCases}>
-      <h4 className={styles.justifyCenter}>
-        The following Caribbean countries have no confirmed cases of Covid-19
-        coronavirus as yet:
-      </h4>
-      <div className={styles.listItemWrap}>
-        {_statsContext.countriesWithNoConfirmedCases?.map(country => (
-          <div key={country.isoCode} className={styles.listItem}>
-            <span className={styles.inlineFlag}>
-              {countryToFlag(country.isoCode)}
-            </span>
-            <span>{country.label}</span>
-          </div>
-        ))}
+    <section className={cx(styles.contentPad, styles.sectionLight)}>
+      <div className={styles.withoutCases}>
+        <h4 className={styles.justifyCenter}>
+          The following Caribbean countries have no confirmed cases of Covid-19
+          coronavirus as yet:
+        </h4>
+        <div className={styles.listItemWrap}>
+          {_statsContext.countriesWithNoConfirmedCases?.map(country => (
+            <div key={country.isoCode} className={styles.listItem}>
+              <span className={styles.inlineFlag}>
+                {countryToFlag(country.isoCode)}
+              </span>
+              <span>{country.label}</span>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

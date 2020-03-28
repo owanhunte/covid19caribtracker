@@ -48,9 +48,9 @@ const Home = () => {
         </Grid>
       </section>
 
-      <section className={cx(styles.contentPad, styles.sectionLight)}>
+      {_statsContext.countriesWithNoConfirmedCases?.length && (
         <CountriesWithoutCases />
-      </section>
+      )}
 
       <section className={cx(styles.contentPad, styles.sectionNormal)}>
         <LatestNews />
