@@ -7,7 +7,6 @@ import Layout from "./components/layouts/v1/Layout";
 import ms from "ms";
 
 const Home = lazy(() => import("./components/app/Home"));
-//const About = lazy(() => import("./components/app/About"));
 
 const App = () => {
   // StatsContext state.
