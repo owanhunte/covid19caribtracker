@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import {
   Paper,
   Toolbar,
@@ -9,6 +9,7 @@ import {
   TableBody,
   TableRow,
   TableCell,
+  TextField,
   Box
 } from "@material-ui/core";
 import Skeleton from "@material-ui/lab/Skeleton";
@@ -75,6 +76,10 @@ const useStyles = makeStyles((theme: Theme) =>
       paddingLeft: "16px !important",
       paddingRight: "16px !important"
     },
+    toolbarControl: {
+      margin: "16px !important",
+      width: '95%'
+    },
     toolbarTitle: {
       flex: "1 1 100%",
       fontSize: "1.45rem"
@@ -140,6 +145,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const TabularStats = () => {
   const _statsContext = useContext(StatsContext);
+  const [searchText, updateSearch] = useState('')
   const classes = useStyles();
   const headCells: HeadCell[] = [
     {
@@ -184,8 +190,8 @@ const TabularStats = () => {
             +{parseInt(data).toLocaleString()}
           </Box>
         ) : (
-          <Box>{parseInt(data).toLocaleString()}</Box>
-        );
+            <Box>{parseInt(data).toLocaleString()}</Box>
+          );
       }
     },
     {
@@ -236,6 +242,14 @@ const TabularStats = () => {
             Stats by Country
           </Typography>
         </Toolbar>
+        <TextField
+          className={classes.toolbarControl}
+          id="outlined-basic"
+          label="Search by country name"
+          variant="outlined"
+          value={searchText}
+          onChange={(e) => updateSearch(e.target.value)}
+        />
         {!_statsContext.statsByCountry && (
           <div style={{ paddingBottom: 40 }}>
             <Skeleton
@@ -262,34 +276,36 @@ const TabularStats = () => {
               </caption>
               <DataTableHead classes={classes} headCells={headCells} />
               <TableBody classes={{ root: classes.tableBody }}>
-                {_statsContext.statsByCountry.map(row => {
-                  return (
-                    <TableRow
-                      hover
-                      key={row.country}
-                      classes={{ root: classes.tableRow }}
-                    >
-                      {headCells.map(headCell => (
-                        <TableCell
-                          key={headCell.name}
-                          className={classes.tableCell}
-                          align={
-                            headCell.dataType === ColumnDataType.Numeric
-                              ? "center"
-                              : "left"
-                          }
-                        >
-                          {headCell.formatData
-                            ? headCell.formatData(row[headCell.name])
-                            : formatCell(
+                {_statsContext.statsByCountry
+                  .filter(item => item.country.toLowerCase().startsWith(searchText))
+                  .map(row => {
+                    return (
+                      <TableRow
+                        hover
+                        key={row.country}
+                        classes={{ root: classes.tableRow }}
+                      >
+                        {headCells.map(headCell => (
+                          <TableCell
+                            key={headCell.name}
+                            className={classes.tableCell}
+                            align={
+                              headCell.dataType === ColumnDataType.Numeric
+                                ? "center"
+                                : "left"
+                            }
+                          >
+                            {headCell.formatData
+                              ? headCell.formatData(row[headCell.name])
+                              : formatCell(
                                 row[headCell.name],
                                 headCell.dataType ?? ColumnDataType.String
                               )}
-                        </TableCell>
-                      ))}
-                    </TableRow>
-                  );
-                })}
+                          </TableCell>
+                        ))}
+                      </TableRow>
+                    );
+                  })}
               </TableBody>
             </Table>
           </TableContainer>
