@@ -8,19 +8,14 @@ const AppFooter = () => {
       <div className={cx(styles.caption, styles.footerDiv1)}>
         <span>
           &copy; {new Date().getUTCFullYear()}. This web app was created by{" "}
-          <a
-            href="https://owanhunte.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="https://owanhunte.com" target="_blank" rel="noopener noreferrer">
             Owan Hunte
           </a>
           , a web developer from <em>Barbados</em>.
         </span>
       </div>
       <div className={cx(styles.caption, styles.footerDiv2)}>
-        Stats, news and other data relevant to the Caribbean region, on the
-        COVID-19 Coronavirus.
+        COVID-19 coronavirus stats for the Caribbean region.
       </div>
     </footer>
   );

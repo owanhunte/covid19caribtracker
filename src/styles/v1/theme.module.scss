@@ -63,11 +63,7 @@
 
 .contentTop {
   background-color: rgb(35, 20, 55);
-  background-image: linear-gradient(
-    135deg,
-    rgb(35, 20, 55) 0%,
-    rgb(51, 51, 51) 100%
-  );
+  background-image: linear-gradient(135deg, rgb(35, 20, 55) 0%, rgb(51, 51, 51) 100%);
   padding: 24px 16px;
   color: rgb(222, 222, 222);
 
@@ -122,6 +118,7 @@ body {
     button {
       border-radius: 2px;
       font-family: "Roboto Condensed", sans-serif;
+      text-transform: none;
       font-size: 1rem;
       font-weight: 700;
 

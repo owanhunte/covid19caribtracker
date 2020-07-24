@@ -1,9 +1,8 @@
-import React, { useContext } from "react";
-import { Grid } from "@material-ui/core";
+import React, {useContext} from "react";
+import {Grid} from "@material-ui/core";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import TabularStats from "./lab/TabularStats";
 import SummaryStats from "./lab/SummaryStats";
-import LatestNews from "./News/LatestNews";
 import StatsContext from "../../context/statsContext";
 import styles from "../../styles/v1/theme.module.scss";
 import cx from "classnames";
@@ -33,11 +32,9 @@ const Home = () => {
                 >
                   javieraviles/covidAPI
                 </a>
-                <br />(
-                <em>Note: Not all countries may be updated at the same time</em>
-                )
+                <br />(<em>Note: Not all countries may be updated at the same time</em>)
               </p>
-              <p style={{ marginBottom: 0 }}>
+              <p style={{marginBottom: 0}}>
                 Last updated:&nbsp;&nbsp;
                 {_statsContext.lastUpdated &&
                   `${formatDistanceToNow(_statsContext.lastUpdated)} ago`}
@@ -45,10 +42,6 @@ const Home = () => {
             </div>
           </Grid>
         </Grid>
-      </section>
-
-      <section className={cx(styles.contentPad, styles.sectionNormal)}>
-        <LatestNews />
       </section>
     </React.Fragment>
   );

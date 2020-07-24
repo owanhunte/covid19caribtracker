@@ -1,27 +1,21 @@
-import React, { FunctionComponent } from "react";
-import { Link } from "react-router-dom";
-import { List, ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
-import { Description as DescriptionIcon } from "@material-ui/icons";
+import React, {FunctionComponent} from "react";
+import {List, ListItem, ListItemIcon, ListItemText} from "@material-ui/core";
+import GitHubIcon from "@material-ui/icons/GitHub";
 import styles from "../../../styles/v1/theme.module.scss";
 
 type Props = {
   toggleAppDrawer: Function;
 };
 
-const AppDrawer: FunctionComponent<Props> = ({ toggleAppDrawer }) => {
+const AppDrawer: FunctionComponent<Props> = ({toggleAppDrawer}) => {
   const menus = {
     main: [
       {
-        label: "Stats & News",
-        icon: <DescriptionIcon classes={{ root: styles.drawerSvgIcon }} />,
-        link: "/"
-      }
-      // {
-      //   label: "About",
-      //   icon: <InfoIcon classes={{ root: styles.drawerSvgIcon }} />,
-      //   link: "/about"
-      // }
-    ]
+        label: "GitHub Repo",
+        icon: <GitHubIcon classes={{root: styles.drawerSvgIcon}} />,
+        link: "https://github.com/owanhunte/covid19caribtracker",
+      },
+    ],
   };
 
   return (
@@ -32,16 +26,22 @@ const AppDrawer: FunctionComponent<Props> = ({ toggleAppDrawer }) => {
       onKeyDown={toggleAppDrawer(false)}
     >
       <div className={styles.drawerContentHeader}>Browse</div>
-      <List component="div" classes={{ root: styles.drawerContentList }}>
-        {menus.main.map(item => (
-          <Link to={item.link} key={item.label}>
-            <ListItem dense button>
-              <ListItemIcon classes={{ root: styles.drawerItemIcon }}>
-                {item.icon}
-              </ListItemIcon>
-              <ListItemText primary={item.label} />
-            </ListItem>
-          </Link>
+      <List component="div" classes={{root: styles.drawerContentList}}>
+        {menus.main.map((item) => (
+          <ListItem
+            key={item.label}
+            component="a"
+            href={item.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            dense
+            button
+          >
+            <ListItemIcon classes={{root: styles.drawerItemIcon}}>
+              {item.icon}
+            </ListItemIcon>
+            <ListItemText primary={item.label} />
+          </ListItem>
         ))}
       </List>
     </div>
